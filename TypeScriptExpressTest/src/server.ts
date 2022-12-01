@@ -1,26 +1,16 @@
-// const express = require("express");
-// import { Request, Response } from "express";
+import bunyan from "bunyan";
+import myApplication from "./app";
 
-// require("dotenv").config();
-// const app = express();
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
 
-// const userRoutes = require("./Routes/userRoutes");
+const log = bunyan.createLogger({
+  name: "error",
+  serializers: bunyan.stdSerializers,
+});
 
-// app.use("/users", userRoutes);
-
-// app.get("/", (req: Request, res: Response) => {
-//   res.status(200).send("hello");
-
-// });
-
-var Logger = require('bunyan')
-var log = new Logger({name:'server'})
+// const Logger = require('bunyan')
+// const log = new Logger({name:'server'})
 
 const PORT = process.env.PORT || 8000;
-
-const myApplication = require("./app");
 
 const server = myApplication();
 

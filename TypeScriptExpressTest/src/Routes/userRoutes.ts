@@ -1,10 +1,11 @@
-const { Router } = require("express");
-const userControllers = require("../models/controllers/userController");
+// const { Router } = require("express");
+import { Router } from "express";
+import userControllers from "../models/controllers/userController";
 
-const userRouter = Router();
+export const userRouter = Router();
 
 userRouter.get("/get", userControllers.getUsers);
-
 userRouter.post("/post", userControllers.postUsers);
-
-module.exports = userRouter;
+userRouter.get("/getSingleUser/:id", userControllers.getSingleUser);
+userRouter.put("/update/:id", userControllers.updateUser);
+userRouter.delete("/delete/:id", userControllers.deleteUser);
